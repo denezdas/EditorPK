@@ -22,16 +22,16 @@
                 <div id="inicio" onclick="javascript:elegirPintura(this,true,0);" class="celda pintura selected"></div><h3>Inicio</h3>
             </div>
             <div class="horizontal">
-                <div id="meta" onclick="javascript:elegirPintura(this,true,0);" class="celda pintura"></div><h3>Meta</h3>
+                <div id="meta" onclick="javascript:elegirPintura(this,true,1);" class="celda pintura"></div><h3>Meta</h3>
             </div>
             <div class="horizontal">
-                <div id="tierra" onclick="javascript:elegirPintura(this,true,0);" class="celda pintura"></div><h3>Tierra</h3>
+                <div id="tierra" onclick="javascript:elegirPintura(this,true,2);" class="celda pintura"></div><h3>Tierra</h3>
             </div>
             <div class="horizontal">
-                <div id="agua" onclick="javascript:elegirPintura(this,true,2);" class="celda pintura"></div><h3>Agua</h3>
+                <div id="agua" onclick="javascript:elegirPintura(this,true,3);" class="celda pintura"></div><h3>Agua</h3>
             </div>
             <div class="horizontal">
-                <div id="pared" onclick="javascript:elegirPintura(this,true,3);" class="celda pintura"></div><h3>Pared</h3>
+                <div id="pared" onclick="javascript:elegirPintura(this,true,4);" class="celda pintura"></div><h3>Pared</h3>
             </div>
         </div>
         <div id="elementos">
@@ -43,7 +43,15 @@
     </div>
 <script>
     let isMouseDown = false;
-    document.addEventListener("mouseup",(e) => {
+    let idx = 2;
+    const colsSurfaces= [
+        "#0f0",//Inicio
+        "#f00",//Meta
+        "#7A420D",//Tierra
+        "#0000FF",//Agua
+        "#444"//Pared
+    ];
+    document.addEventListener('mouseup',(e) => {
         isMouseDown = false;
     })
 
@@ -51,7 +59,7 @@
         .forEach( celda => {
             celda.addEventListener('mousedown', (e) => {
                 console.log('mousedown');
-                isMouseDown = trueM
+                isMouseDown = true;
                 pintarCelda(celda);
             });
             celda.addEventListener('mouseover', (e) => {
@@ -69,7 +77,6 @@
         function pintarCelda(celda){
             celda.style.backgroundColor = colsSurfaces[idx];
         }
-        var spriteGlobal = "";
 
         function elegirPintura(elemento, superficie, indice) {
             document.querySelectorAll('.pintura')
@@ -77,6 +84,7 @@
                     celda.classList.remove('selected');
                 });
             elemento.classList.add('selected');
+            idx= indice;
         }
 </script>
 </body>
