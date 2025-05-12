@@ -42,32 +42,42 @@
         </div>
     </div>
 <script>
-    document.querySelectorAll('#tablero ,celda')
+    let isMouseDown = false;
+    document.addEventListener("mouseup",(e) => {
+        isMouseDown = false;
+    })
+
+    document.querySelectorAll('#tablero .celda')
         .forEach( celda => {
             celda.addEventListener('mousedown', (e) => {
-                // console.log('mousedown');
+                console.log('mousedown');
                 isMouseDown = trueM
                 pintarCelda(celda);
             });
             celda.addEventListener('mouseover', (e) => {
-                // console.log('mouseover');
+                console.log('mouseover');
                 if (isMouseDown) {
                     pintarCelda(celda);
                 }
             });
             celda.addEventListener('mouseup', (e) => {
-                // console.log('mouseup');
+                console.log('mouseup');
                 isMouseDown = false;
             });
         });
 
-    function elegirPintura(elemento, superficie, indice) {
-        document.querySelectorAll('.pintura')
-            .forEach(celda => {
-                celda.classList.remove('selected');
-            });
-        elemento.classList.add('selected');
-    }
+        function pintarCelda(celda){
+            celda.style.backgroundColor = colsSurfaces[idx];
+        }
+        var spriteGlobal = "";
+
+        function elegirPintura(elemento, superficie, indice) {
+            document.querySelectorAll('.pintura')
+                .forEach(celda => {
+                    celda.classList.remove('selected');
+                });
+            elemento.classList.add('selected');
+        }
 </script>
 </body>
 </html>
