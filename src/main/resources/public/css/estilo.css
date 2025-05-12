@@ -1,0 +1,97 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    background-color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    color: #000;
+    padding: 20px;
+}
+
+h2 {
+    padding-left: 20px;
+}
+
+/*************************************/
+/*            CONTENEDOR             */
+/*************************************/
+#contenedor {
+    display: flex;
+    width: 100%;
+    gap: 20px;
+}
+#tablero {
+    min-width: 600px;
+    flex-shrink: 0;
+
+    /* grid celdas */
+    display: grid;
+    grid-template-columns: repeat(30, 20px);
+    grid-template-rows: repeat(40, 20px);
+    border: 1px solid black;
+    background-color: rgb(180, 180, 180);
+}
+#escenario {
+    flex: 0.65;
+}
+#elementos {
+    flex: 1;
+}
+#acciones {
+    flex: 1;
+}
+
+/*************************************/
+/*              TABLERO              */
+/*************************************/
+#tablero .celda {
+    width: 20px;
+    height: 20px;
+    border: 1px solid red;
+}
+.celda {
+    width: 20px;
+    height: 20px;
+}
+#escenario ,#elementos, #acciones {
+    border: 1px solid black;
+    background-color: rgb(180, 180, 180);
+}
+#inicio {
+    background-color: rgb(0, 255, 0);
+}
+#meta{
+    background-color: rgb(255, 0, 0);
+}
+#tierra{
+    background-color: rgb(189, 128, 15);
+}
+#agua{
+    background-color: rgb(0, 0, 255);
+}
+#pared{
+    background-color: rgb(128, 128, 128);
+}
+div .pintura:hover{
+    width: 30px;
+    height: 30px;
+}
+div .selected{
+    width: 30px;
+    height: 30px;
+    border: 2px solid red;
+}
+div .selected + h3{
+    color: red;
+}
+
+/*************************************/
+/*              FORMATO              */
+/*************************************/
+.horizontal {
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
